@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="laser_model"  default="sick-nanoscan-3"/>
+  <arg name="camera_model" default="realsense-d435"/>
+
+  <!-- Diff drive controller multipliers -->
+  <arg name="calibrated_multipliers_dir"  value="$(optenv pal_wheel_calibration_calibration_path)"/>
+  <arg name="multipliers_dir"  value="$(eval calibrated_multipliers_dir if (calibrated_multipliers_dir != '') else find('pmb3_controller_configuration') + '/config')"/>
+  <rosparam command="load" file="$(arg multipliers_dir)/mobile_base_controller_multipliers.yaml"/>
+
+  <!-- Diff drive controller parameters -->
+  <rosparam command="load" file="$(find pmb3_controller_configuration)/config/mobile_base_controller.yaml"/>
+
+  <!-- Robot model -->
+  <include file="$(find pmb3_description)/robots/upload.launch">
+    <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="camera_model"  value="$(arg camera_model)"/>
+  </include>
+
+  <!-- pmb3_hardware parameters -->
+  <rosparam command="load" file="$(find pmb3_bringup)/config/pmb3_hardware/pmb3_hardware.yaml"/>
+
+  <!--[> Bring up robot <]-->
+  <include file="$(find pmb3_bringup)/launch/pmb3_bringup.launch">
+    <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="camera_model"  value="$(arg camera_model)"/>
+  </include>
+</launch>

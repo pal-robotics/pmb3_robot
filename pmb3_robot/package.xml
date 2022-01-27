@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pmb3_robot</name>
+  <version>0.0.0</version>
+  <description>The pmb3_robot package</description>
+
+  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>
+
+  <license>BSD</license>
+
+  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>pmb3_description</exec_depend>
+  <exec_depend>pmb3_controller_configuration</exec_depend>
+  <exec_depend>pmb3_bringup</exec_depend>
+
+  <export>
+     <metapackage/>
+  </export>
+
+
+</package>

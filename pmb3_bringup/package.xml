@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pmb3_bringup</name>
+  <version>0.0.0</version>
+  <description>The pmb3_bringup package</description>
+
+  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>
+
+  <license>Proprietary</license>
+
+  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>tf_lookup</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>pmb3_controller_configuration</exec_depend>
+  <exec_depend>pmb3_description</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>joy_teleop</exec_depend>
+  <exec_depend>robot_pose</exec_depend>
+  <exec_depend>speed_limit_node</exec_depend>
+  <exec_depend>twist_mux</exec_depend>
+
+  <export>
+  </export>
+</package>

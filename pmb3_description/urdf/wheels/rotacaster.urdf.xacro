@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pmb3_description)/urdf/wheels/rotacaster.gazebo.xacro"/>
+  <xacro:macro name="rotacaster" params="side radius width xyz parent">
+    <link name="rotacaster_${side}_link">
+      <inertial>
+        <origin
+          xyz="0.15342885891648 -0.082535320935394 0.16053102916421"
+          rpy="0 0 0" />
+        <mass
+          value="44.522746198516" />
+        <inertia
+          ixx="1.20266192350964"
+          ixy="0.0662750364030495"
+          ixz="0.00445544182410365"
+          iyy="1.96325391101451"
+          iyz="0.00381031113321343"
+          izz="1.28871424769342" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://pmb3_description/meshes/wheels/rotacaster.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	        <sphere radius="${radius}" /> 
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="rotacaster_${side}_joint" type="revolute">
+      <parent link="${parent}_link"/>
+      <child link="rotacaster_${side}_link"/>
+      <origin xyz="${xyz}" rpy="${-90.0 * deg_to_rad} 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="0" upper="0" effort="0" velocity="0" />
+    </joint>
+
+    <!-- Gazebo extensions -->
+    <xacro:rotacaster_gazebo side="${side}"/>
+
+  </xacro:macro>
+</robot>

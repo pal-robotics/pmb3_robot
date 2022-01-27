@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2022, PAL Robotics, S.L.
+  All rights reserved.
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="left_rgbd_z" value="0.164028397812952"/>
+  <xacro:property name="left_rgbd_R" value="180.0"/>
+  <xacro:property name="left_rgbd_P" value="0.0"/>
+  <xacro:property name="right_rgbd_z" value="0.147644299790751"/>
+  <xacro:property name="right_rgbd_R" value="21.612"/>
+  <xacro:property name="right_rgbd_P" value="29.904"/>
+</robot>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+
+  Copyright (c) 2022, PAL Robotics, S.L.
+  All rights reserved.
+
+  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
+  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pmb3_description)/urdf/base/base.urdf.xacro"/>
+
+  <xacro:include filename="$(find pmb3_description)/urdf/sensors/sick_nanoscan3_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/hokuyo_urg_04lx_ug01_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
+
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  <xacro:include filename="$(find stockbot_description)/urdf/sensors/structure_sensor.urdf.xacro"/>
+
+  <xacro:include filename="$(find pmb3_description)/urdf/deg_to_rad.xacro"/>
+
+  <!-- Laser characteristics -->
+  <xacro:property name="base_laser_x" value="0.25600233047086"/>
+  <xacro:property name="base_laser_y" value="0.0"/>
+  <xacro:property name="base_laser_z" value="0.0823786704606883"/>
+
+  <!-- RGBD cameras characteristics -->
+  <xacro:property name="default_calibration_path" value="$(find pmb3_description)"/>
+  <xacro:property name="calibration_path" value="$(optenv pmb3_description_calibration_path ${default_calibration_path})"/>
+  <xacro:include filename="${calibration_path}/urdf/base/base_pmb3_calib.urdf.xacro"/>
+  <xacro:property name="left_rgbd_x" value="0.249110911156978"/>
+  <xacro:property name="left_rgbd_y" value="0.117678395770306"/>
+  <xacro:property name="left_rgbd_Y" value="-10.0"/>
+  <xacro:property name="right_rgbd_x" value="0.260434779504343"/>
+  <xacro:property name="right_rgbd_y" value="-0.112224592786096"/>
+  <xacro:property name="right_rgbd_Y" value="3.738"/>
+
+  <!-- Laser model can be: false, hokuyo, sick-551, sick-561, sick-571, sick-nanoscan-3 -->
+  <!-- Camera model can be: false, realsense-d435, structure -->
+  <xacro:macro name="base_sensors" params=" name laser_model:=sick-nanoscan-3 camera_model:=realsense-d435">
+
+    <xacro:if value="${laser_model == 'hokuyo'}">
+      <!-- Laser -->
+      <!-- Theoretic FOV = 220 -->
+      <xacro:hokuyo_urg_04lx_ug01_laser name="${name}_laser" parent="${name}" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}" >
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:hokuyo_urg_04lx_ug01_laser>
+    </xacro:if>
+
+    <xacro:if value="${laser_model == 'sick-551'}">
+      <!-- Laser -->
+      <!-- Theoretic FOV = 220 -->
+      <xacro:sick_tim551_laser name="${name}_laser" parent="${name}" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}" >
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:sick_tim551_laser>
+    </xacro:if>
+
+    <xacro:if value="${laser_model == 'sick-561'}">
+      <!-- Laser -->
+      <!-- Theoretic FOV = 220 -->
+      <xacro:sick_tim561_laser name="${name}_laser" parent="${name}" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}" >
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:sick_tim561_laser>
+    </xacro:if>
+
+    <xacro:if value="${laser_model == 'sick-571'}">
+      <!-- Laser -->
+      <!-- Theoretic FOV = 220 -->
+      <xacro:sick_tim571_laser name="${name}_laser" parent="${name}" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}" >
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:sick_tim571_laser>
+    </xacro:if>
+
+    <xacro:if value="${laser_model == 'sick-nanoscan-3'}">
+      <!-- Laser -->
+      <!-- Theoretic FOV = 275 (using 240) -->
+      <xacro:sick_tim571_laser name="${name}_laser" parent="${name}" ros_topic="scan_raw" update_rate="15" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}" >
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:sick_tim571_laser>
+    </xacro:if>
+
+    <!-- RGBD camera -->
+    <xacro:if value="${camera_model == 'realsense-d435'}">
+      <xacro:sensor_d435 name="left_rgbd_camera" parent="${name}_link" topics_ns="left_rgbd_camera">
+        <origin xyz="${left_rgbd_x} ${left_rgbd_y} ${left_rgbd_z}" rpy="${left_rgbd_R * deg_to_rad} ${left_rgbd_P * deg_to_rad} ${left_rgbd_Y * deg_to_rad}"/>
+      </xacro:sensor_d435>
+      
+      <xacro:sensor_d435 name="right_rgbd_camera" parent="${name}_link" topics_ns="right_rgbd_camera">
+        <origin xyz="${right_rgbd_x} ${right_rgbd_y} ${right_rgbd_z}" rpy="${right_rgbd_R * deg_to_rad} ${right_rgbd_P * deg_to_rad} ${right_rgbd_Y * deg_to_rad}"/>
+      </xacro:sensor_d435>
+    </xacro:if>
+
+    <xacro:if value="${camera_model == 'structure'}">
+      <xacro:structure_sensor name="left_rgbd_camera" parent="${name}_link" topics_ns="left_rgbd_camera">
+        <origin xyz="${left_rgbd_x} ${left_rgbd_y} ${left_rgbd_z}" rpy="${left_rgbd_R * deg_to_rad} ${left_rgbd_P * deg_to_rad} ${left_rgbd_Y * deg_to_rad}"/>
+      </xacro:structure_sensor>
+      
+      <xacro:structure_sensor name="right_rgbd_camera" parent="${name}_link" topics_ns="right_rgbd_camera">
+        <origin xyz="${right_rgbd_x} ${right_rgbd_y} ${right_rgbd_z}" rpy="${right_rgbd_R * deg_to_rad} ${right_rgbd_P * deg_to_rad} ${right_rgbd_Y * deg_to_rad}"/>
+      </xacro:structure_sensor>
+    </xacro:if>
+    
+    <xacro:base name="${name}"/>
+  </xacro:macro>
+
+</robot>

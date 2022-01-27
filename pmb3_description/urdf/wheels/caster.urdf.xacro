@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pmb3_description)/urdf/wheels/caster.gazebo.xacro"/>
+  <xacro:macro name="caster" params="side radius width xyz parent">
+     <link
+    name="caster_${side}_1_link">
+    <inertial>
+      <origin
+        xyz="-0.0127821545300275 -8.65159848234345E-09 -0.026885419011607"
+        rpy="0 0 0" />
+      <mass
+        value="0.360643958334591" />
+      <inertia
+        ixx="0.000299768037389402"
+        ixy="1.09817024201221E-11"
+        ixz="-0.000100981860741726"
+        iyy="0.000334046960940412"
+        iyz="-1.59969921117045E-11"
+        izz="0.000323972435747687" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_${side}_1_joint"
+    type="revolute">
+    <origin
+      xyz="${xyz}"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="${parent}_link" />
+    <child
+      link="caster_${side}_1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="caster_${side}_2_link">
+    <inertial>
+      <origin
+        xyz="-0.0408357019533727 -0.0092133942713065 2.41928334532354E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0946878630749199" />
+      <inertia
+        ixx="2.21937468163212E-05"
+        ixy="-1.9929613523865E-05"
+        ixz="4.89721160533202E-10"
+        iyy="5.37437376157505E-05"
+        iyz="3.60958991688957E-09"
+        izz="7.5604492365809E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_2.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_${side}_2_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0374999999999999 0 -0.0659999998168691"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="caster_${side}_1_link" />
+    <child
+      link="caster_${side}_2_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="caster_${side}_3_link">
+    <inertial>
+      <origin
+        xyz="0 0 6.17310698704775E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.122536883449448" />
+      <inertia
+        ixx="5.143649657879E-05"
+        ixy="-2.55310614726917E-21"
+        ixz="4.57949223323614E-21"
+        iyy="5.143649657879E-05"
+        iyz="-1.41711420438758E-21"
+        izz="8.55807030651471E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_3.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pmb3_description/meshes/wheels/caster_3.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_${side}_3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0729999999999999 -0.0265000000000009 0"
+      rpy="0 0 0" />
+    <parent
+      link="caster_${side}_2_link" />
+    <child
+      link="caster_${side}_3_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+    <!-- Gazebo extensions -->
+    <xacro:caster_gazebo side="${side}"/>
+
+  </xacro:macro>
+</robot>

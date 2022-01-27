@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!--
+
+  Copyright (c) 2022, PAL Robotics, S.L.
+  All rights reserved.
+
+  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
+  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pmb3_description)/urdf/deg_to_rad.xacro"/>
+
+  <xacro:include filename="$(find pmb3_description)/urdf/wheels/wheel.urdf.xacro"/>
+  <xacro:include filename="$(find pmb3_description)/urdf/wheels/caster.urdf.xacro"/>
+  <xacro:include filename="$(find pmb3_description)/urdf/wheels/rotacaster.urdf.xacro"/>
+
+  <xacro:include filename="$(find pmb3_description)/urdf/sensors/imu.urdf.xacro"/>
+
+  <xacro:include filename="$(find pmb3_description)/urdf/base/antenna.urdf.xacro"/>
+
+  <!-- Wheel characteristics -->
+  <xacro:property name="wheel_radius"       value="0.1"/>
+  <xacro:property name="wheel_width"        value="0.040"/>
+  <xacro:property name="wheel_separation"   value="0.443"/>
+  <xacro:property name="wheel_torque"       value="6.0"/>
+  <xacro:property name="wheel_velocity"     value="1.0"/>
+
+  <!-- Caster wheel characteristics -->
+  <xacro:property name="caster_radius"      value="0.0375"/>
+  <xacro:property name="caster_width"       value="0.03"/>
+
+  <!-- Rotacaster wheel characteristics -->
+  <xacro:property name="rotacaster_radius"  value="0.0625"/>
+  <xacro:property name="rotacaster_width"   value="0.02"/>
+
+
+  <xacro:macro name="base" params="name">
+
+    <!-- Base -->
+    <link name="${name}_link">
+      <inertial>
+        <origin
+          xyz="-0.023692 -0.00030902 0.056327"
+          rpy="0 0 0" />
+        <mass
+          value="31.216" />
+        <inertia
+          ixx="0.30698"
+          ixy="0.00020199"
+          ixz="-0.010985"
+          iyy="0.31578"
+          iyz="4.1792E-05"
+          izz="0.5369" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://pmb3_description/meshes/base/base.stl" />
+        </geometry>
+        <material name="White" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://pmb3_description/meshes/base/base.stl" />
+        </geometry>
+        <material name="White" />
+      </collision>
+    </link>
+    <gazebo reference="${name}_link">
+      <material>Gazebo/White</material>
+    </gazebo>
+
+    <!-- Base footprint -->
+    <link name="${name}_footprint"/>
+
+    <joint name="${name}_footprint_joint" type="fixed">
+      <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0" />
+      <child link="${name}_link" />
+      <parent link="${name}_footprint"/>
+    </joint>
+
+  <!-- gazebo parameters are given here for base_link thru base_footprint -->
+    <gazebo reference="${name}_footprint">
+      <kp>100000000.0</kp>
+      <kd>10.0</kd>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <fdir1>1 0 0</fdir1>
+      <maxVel>10.0</maxVel>
+      <minDepth>0.0005</minDepth>
+      <laserRetro>0</laserRetro>
+    </gazebo>
+
+    <!-- Antennas -->
+    <xacro:antenna name="${name}_antenna_left" parent="${name}_link">
+      <origin xyz="0.181002330470336 0.182 0.19499999999981" rpy="0 0 0"/>
+    </xacro:antenna>
+    <xacro:antenna name="${name}_antenna_right" parent="${name}_link">
+      <origin xyz="0.181002330470336 -0.182 0.19499999999981" rpy="0 0 0"/>
+    </xacro:antenna>
+
+    <!-- IMU -->
+    <xacro:imu_sensor name="${name}_imu" parent="${name}_link" update_rate="100.0">
+      <origin xyz="0.1556 0 0.0426" rpy="-1.5708 0 1.5708"/>
+    </xacro:imu_sensor>
+
+    <!-- Docking link -->
+    <link name="${name}_dock_link">
+      <inertial>
+        <origin
+          xyz="-0.00370824564720912 -6.29936915335306E-17 -1.55431223447522E-15"
+          rpy="0 0 0" />
+        <mass
+          value="0.0322416039866997" />
+        <inertia
+          ixx="2.13015599380128E-05"
+          ixy="-1.62368313676918E-21"
+          ixz="3.53161936145733E-22"
+          iyy="1.20577712616773E-05"
+          iyz="1.71969152983287E-22"
+          izz="1.00581681609268E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://pmb3_description/meshes/base/base_dock_link.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="0.25098 0.25098 0.25098 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://pmb3_description/meshes/base/base_dock_link.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${name}_dock" type="fixed">
+      <origin xyz="0.3165 0 -0.0080023" rpy="0 0 0" />
+      <parent link="${name}_link" />
+      <child link="${name}_dock_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <!-- Wheels -->
+    <xacro:wheel side="right" reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" separation="${wheel_separation}" parent="${name}"/>
+    <xacro:wheel side="left"  reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" separation="${wheel_separation}" parent="${name}"/>
+
+    <!-- Casters wheels -->
+    <xacro:caster side="right" radius="${caster_radius}" width="${caster_width}" xyz="0.205 -0.121 0.03" parent="${name}"/>
+    <xacro:caster side="left"  radius="${caster_radius}" width="${caster_width}" xyz="0.205 0.121 0.03" parent="${name}"/>
+
+    <!-- Rotacasters wheels-->
+    <xacro:rotacaster side="right"  radius="${rotacaster_radius}" width="${rotacaster_width}" xyz="-0.1825 -0.15965 -0.037502" parent="${name}"/>
+    <xacro:rotacaster side="left"   radius="${rotacaster_radius}" width="${rotacaster_width}" xyz="-0.1825 0.15965 -0.037502" parent="${name}"/>
+  </xacro:macro>
+
+</robot>

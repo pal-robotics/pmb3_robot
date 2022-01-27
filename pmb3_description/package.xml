@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pmb3_description</name>
+  <version>0.0.0</version>
+  <description>This package contains the description (mechanical, kinematic, visual,
+      etc.) of the pmb3 robot.  The files in this package are parsed and used by
+      a variety of other components.  Most users will not interact directly
+      with this package.</description>
+  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>
+  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</author>
+  <license>Creative Commons BY-NC-ND 3.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>pmb2_description</exec_depend>
+  <exec_depend>hector_gazebo_plugins</exec_depend>
+
+  <test_depend>rostest</test_depend>
+  <test_depend>urdf_test</test_depend>
+
+</package>

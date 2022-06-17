@@ -2,8 +2,8 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.2 (2022-06-17)
+------------------
 * Merge branch 'feat/scafo-devel' into 'ferrum-devel'
   updated camera extrinsic parameters and tf2 convention
   See merge request robots/pmb3_robot!2

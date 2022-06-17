@@ -6,7 +6,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="base_rgbd_z" value="0.147644299790751"/>
   <xacro:property name="base_rgbd_R" value="21.612"/>
-  <xacro:property name="base_rgbd_P" value="29.904"/>
+  <xacro:property name="base_rgbd_P" value="31.00"/>
   <xacro:property name="roof_rgbd_z" value="0.164028397812952"/>
   <xacro:property name="roof_rgbd_R" value="180.0"/>
   <xacro:property name="roof_rgbd_P" value="0.0"/>

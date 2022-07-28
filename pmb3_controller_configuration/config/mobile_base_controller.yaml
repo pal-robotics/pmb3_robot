@@ -20,6 +20,7 @@ mobile_base_controller:
   preserve_turning_radius: true
 
   # Publish tf odom
+  # if enable_odom_tf is set to false, it is needed that another system publishes the odom tf (i.e robust_odometry)
   enable_odom_tf: false
 
   # Publish limited velocity

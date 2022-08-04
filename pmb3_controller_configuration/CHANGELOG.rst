@@ -2,6 +2,15 @@
 Changelog for package pmb3_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/mr-clean-develop' into 'ferrum-devel'
+  disable wheel odometry tf
+  See merge request robots/pmb3_robot!3
+* added comment about odom tf
+* disable wheel odometry tf
+* Contributors: josegarcia, yueerro
+
 0.0.2 (2022-06-17)
 ------------------
 * Merge branch 'feat/scafo-devel' into 'ferrum-devel'

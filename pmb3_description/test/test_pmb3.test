@@ -1,6 +1,6 @@
 <launch>
   <arg name="multi" default=""/>
-  <arg name="laser_model"  default="sick-nanoscan-3"/>
+  <arg name="laser_model"  default="ydlidar-tg30"/>
   <arg name="camera_model"  default="realsense-d345"/>
 
   <arg name="test_suffix" value="$(arg multi)_$(arg laser_model)_$(arg camera_model)"/>

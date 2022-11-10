@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="laser_model"  default="sick-nanoscan-3"/>
+  <arg name="laser_model"  default="ydlidar-tg30"/>
   <arg name="camera_model" default="realsense-d435"/>
 
   <!-- Diff drive controller multipliers -->

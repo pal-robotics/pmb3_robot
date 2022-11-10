@@ -2,6 +2,14 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/add-lasers-supported' into 'ferrum-devel'
+  add support to ydlidar-tg15/tg30 and sick-561
+  See merge request robots/pmb3_robot!4
+* add support to ydlidar-tg15/tg30 and sick-561
+* Contributors: josegarcia
+
 0.0.3 (2022-08-04)
 ------------------
 

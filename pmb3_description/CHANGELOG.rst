@@ -2,8 +2,8 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.5 (2022-11-21)
+------------------
 * Merge branch 'fixed_wheels_slippage' into 'gallium-devel'
   fixed/wheels slippage
   See merge request robots/pmb3_robot!5

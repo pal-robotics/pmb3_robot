@@ -2,6 +2,9 @@
 Changelog for package pmb3_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.4 (2022-11-10)
 ------------------
 

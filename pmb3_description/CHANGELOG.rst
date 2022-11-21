@@ -2,6 +2,14 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fixed_wheels_slippage' into 'gallium-devel'
+  fixed/wheels slippage
+  See merge request robots/pmb3_robot!5
+* fixed/wheels slippage
+* Contributors: andrea.capodacqua, josegarcia
+
 0.0.4 (2022-11-10)
 ------------------
 * Merge branch 'feat/add-lasers-supported' into 'ferrum-devel'

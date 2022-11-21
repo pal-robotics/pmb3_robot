@@ -21,14 +21,10 @@
     <link name="wheel_${side}_link">
       <inertial>
         <origin xyz="6.96206955455241E-05 2.26046624622056E-05 ${-0.000537771034191503 * reflect}" rpy="0 0 0"/>
-        <mass value="1.30468312314655"/>
-        <inertia
-          ixx="0.00335246532285387"
-          ixy="${-4.14934717884663E-07 * reflect}"
-          ixz="4.83252300093776E-08"
-          iyy="0.00335016326369408"
-          iyz="${1.59142713909937E-07 * reflect}"
-          izz="0.00620544284896242" />
+         <mass value="1.82362"/>
+        <inertia ixx="0.00499743171" ixy="${ 0.00000004464 * reflect}" ixz="-0.00000002245"
+          iyy="0.00499741733" iyz="${-0.00000000164 * reflect}"
+          izz="0.00839239692"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="${-90.0 * (1 - reflect) * deg_to_rad} 0 0"/>

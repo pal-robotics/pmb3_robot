@@ -2,8 +2,8 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.6 (2022-12-01)
+------------------
 * Merge branch 'fix/nanoscan' into 'gallium-devel'
   added nanoscan 3 to accepted lasers
   See merge request robots/pmb3_robot!7

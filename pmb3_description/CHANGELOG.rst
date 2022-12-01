@@ -2,6 +2,14 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/nanoscan' into 'gallium-devel'
+  added nanoscan 3 to accepted lasers
+  See merge request robots/pmb3_robot!7
+* added nanoscan 3 to accepted lasers
+* Contributors: antoniobrandi
+
 0.0.5 (2022-11-21)
 ------------------
 * Merge branch 'fixed_wheels_slippage' into 'gallium-devel'

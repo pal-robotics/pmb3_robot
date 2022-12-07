@@ -40,7 +40,7 @@
 
   <!-- Laser model can be: false, sick-561, sick-571, sick-nanoscan-3, ydlidar-tg30 -->
   <!-- Camera model can be: false, realsense-d435 -->
-  <xacro:macro name="base_sensors" params=" name laser_model:=ydlidar-tg30 camera_model:=realsense-d435 ">
+  <xacro:macro name="base_sensors" params=" name laser_model:=ydlidar-tg30 camera_model:=realsense-d435">
 
     <xacro:if value="${laser_model == 'sick-561'}">
       <!-- Laser -->

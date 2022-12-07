@@ -2,6 +2,11 @@
 Changelog for package pmb3_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Using robot_state_publisher instead of state_publisher
+* Contributors: antoniobrandi
+
 0.0.6 (2022-12-01)
 ------------------
 

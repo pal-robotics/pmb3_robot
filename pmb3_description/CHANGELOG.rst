@@ -2,8 +2,8 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.8 (2022-12-12)
+------------------
 * Merge branch 'base-stl' into 'gallium-devel'
   update base stl with a smaller size
   See merge request robots/pmb3_robot!8

@@ -84,11 +84,11 @@
 
     <!-- RGBD camera -->
     <xacro:if value="${camera_model == 'realsense-d435'}">
-      <xacro:sensor_d435 name="roof_rgbd_camera" parent="${name}_link" topics_ns="roof_rgbd_camera">
+      <xacro:sensor_d435 name="roof_rgbd_camera" parent="${name}_link" topics_ns="roof_rgbd_camera" use_nominal_extrinsics="${use_nominal_extrinsics}">
         <origin xyz="${roof_rgbd_x} ${roof_rgbd_y} ${roof_rgbd_z}" rpy="${roof_rgbd_R * deg_to_rad} ${roof_rgbd_P * deg_to_rad} ${roof_rgbd_Y * deg_to_rad}"/>
       </xacro:sensor_d435>
       
-      <xacro:sensor_d435 name="base_rgbd_camera" parent="${name}_link" topics_ns="base_rgbd_camera">
+      <xacro:sensor_d435 name="base_rgbd_camera" parent="${name}_link" topics_ns="base_rgbd_camera" use_nominal_extrinsics="${use_nominal_extrinsics}">
         <origin xyz="${base_rgbd_x} ${base_rgbd_y} ${base_rgbd_z}" rpy="${base_rgbd_R * deg_to_rad} ${base_rgbd_P * deg_to_rad} ${base_rgbd_Y * deg_to_rad}"/>
       </xacro:sensor_d435>
     </xacro:if>

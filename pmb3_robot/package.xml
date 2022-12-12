@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>pmb3_robot</name>
-  <version>0.0.8</version>
+  <version>0.0.9</version>
   <description>The pmb3_robot package</description>
 
   <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>

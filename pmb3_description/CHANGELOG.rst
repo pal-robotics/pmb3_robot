@@ -2,6 +2,16 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'added_camera_model' into 'gallium-devel'
+  added camera_model "realsense-d435"
+  See merge request robots/pmb3_robot!6
+* fix space
+* changed mesh of pmb3
+* added camera_model "realsense-d435"
+* Contributors: andrea.capodacqua, andreacapodacqua, josegarcia
+
 0.0.8 (2022-12-12)
 ------------------
 * Merge branch 'base-stl' into 'gallium-devel'

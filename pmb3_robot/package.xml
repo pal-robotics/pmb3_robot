@@ -1,23 +1,19 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>pmb3_robot</name>
   <version>0.0.9</version>
   <description>The pmb3_robot package</description>
+  <author email="yue.erro@pal-robotics.com">Yue Erro</author>
+  <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
+  <license>Apache License 2.0</license>
 
-  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <license>BSD</license>
-
-  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</author>
-
-  <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>pmb3_description</exec_depend>
   <exec_depend>pmb3_controller_configuration</exec_depend>
   <exec_depend>pmb3_bringup</exec_depend>
 
   <export>
-     <metapackage/>
+     <build_type>ament_cmake</build_type>
   </export>
-
-
 </package>

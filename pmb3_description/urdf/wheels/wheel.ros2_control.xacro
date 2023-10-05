@@ -15,5 +15,21 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:property name="deg_to_rad" value="0.01745329251994329577" />
+  <xacro:macro name="ros2_control_wheel" params="side">
+    <joint name="wheel_${side}_joint">
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position" />
+    </joint>
+
+    <transmission name="wheel_${side}_trans">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="wheel_${side}_actuator" role="actuator1"/>
+      <joint name="wheel_${side}_joint" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+      </joint>
+    </transmission>
+  </xacro:macro>
 </robot>

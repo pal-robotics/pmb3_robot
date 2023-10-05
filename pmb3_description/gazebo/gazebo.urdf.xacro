@@ -1,13 +1,19 @@
 <?xml version="1.0"?>
-<!--
-  Copyright (c) 2022, PAL Robotics, S.L.
-  All rights reserved.
+<!-- 
+  Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 
-  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
-  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
-  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
--->
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ -->
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
@@ -15,18 +21,18 @@
        name="pmb3">
 
   <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <ns></ns>
-      <robotSimType>pal_hardware_gazebo/PalHardwareGazebo</robotSimType>
-      <robotNamespace></robotNamespace>
-      <controlPeriod>0.001</controlPeriod>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <!-- in the future move this param file somewhere else -->
+      <parameters>$(find pmb3_controller_configuration)/config/gazebo_controller_manager_cfg.yaml</parameters>
     </plugin>
 
     <plugin filename="libgazebo_ros_p3d.so" name="gazebo_ros_p3d">
-      <bodyName>base_footprint</bodyName>
-      <topicName>ground_truth_odom</topicName>
-      <alwaysOn>true</alwaysOn>
-      <updateRate>100.0</updateRate>
+      <ros>
+        <remapping>odom:=ground_truth_odom</remapping>
+      </ros>
+      <body_name>base_footprint</body_name>
+      <always_on>true</always_on>
+      <update_rate>100.0</update_rate>
     </plugin>
   </gazebo>
 

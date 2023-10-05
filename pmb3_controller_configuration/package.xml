@@ -1,20 +1,25 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>pmb3_controller_configuration</name>
   <version>0.0.9</version>
-  <description>The pmb3_controller_configuration package</description>
+  <description>
+    Launch and configuration files needed to configure 
+    the controllers of the pmb3 robot
+  </description>
+  <author email="yue.erro@pal-robotics.com">Yue Erro</author>
+  <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
+  <license>Apache License 2.0</license>
 
-  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</maintainer>
-
-  <license>Proprietary</license>
-
-  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia</author>
-
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
   <exec_depend>controller_manager</exec_depend>
-  <exec_depend>joint_state_controller</exec_depend>
-  <exec_depend>imu_sensor_controller</exec_depend>
-  <exec_depend>omni_drive_controller</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>imu_sensor_broadcaster</exec_depend>
 
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

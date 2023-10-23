@@ -18,7 +18,6 @@ from launch_pal.include_utils import include_launch_py_description
 
 def generate_launch_description():
 
-    # @TODO: missing equivalent to ROS1 robot_pose_node
     # @TODO: missing equivalent to tf_lookup, but it may have been legacy from tf1
 
     default_controllers_launch = include_launch_py_description(

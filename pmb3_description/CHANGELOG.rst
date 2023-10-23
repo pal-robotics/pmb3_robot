@@ -2,8 +2,8 @@
 Changelog for package pmb3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.10 (2023-10-23)
+-------------------
 * Merge branch 'feat/use_urdf_utils' into 'gallium-devel'
   Use urdf_utils
   See merge request robots/pmb3_robot!9

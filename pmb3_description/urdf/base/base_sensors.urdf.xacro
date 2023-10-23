@@ -20,8 +20,6 @@
 
   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
-  <xacro:include filename="$(find pmb3_description)/urdf/deg_to_rad.xacro"/>
-
   <!-- Laser characteristics -->
   <xacro:property name="base_laser_x" value="0.25600233047086"/>
   <xacro:property name="base_laser_y" value="0.0"/>

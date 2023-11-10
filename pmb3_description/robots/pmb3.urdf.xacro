@@ -19,7 +19,7 @@
   <xacro:arg name="camera_model" default="realsense-d435"/>
   <xacro:arg name="multiple" default="false"/>
   <xacro:arg name="namespace" default=""/>
-  <xacro:arg name="simulation" default="true" />
+  <xacro:arg name="simulation" default="false" />
   <xacro:property name="is_multiple" value="$(arg multiple)" />
   <xacro:property name="use_nominal_extrinsics" value="$(arg simulation)"/>
   <xacro:property name="nsp" value="$(arg namespace)" />

@@ -1,2 +1,2 @@
 bringup:
-  launch: "pmb3_bringup pmb3_bringup.launch.py use_sim_time:=false"
+  launch: "pmb3_bringup pmb3_bringup.launch.py"

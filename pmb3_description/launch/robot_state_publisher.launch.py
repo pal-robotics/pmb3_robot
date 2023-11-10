@@ -50,7 +50,7 @@ def launch_setup(context, *args, **kwargs):
         {
             'laser_model': read_launch_argument('laser_model', context),
             'camera_model': read_launch_argument('camera_model', context),
-            'simulation': read_launch_argument('use_sim_time', context),
+            'use_sim': read_launch_argument('use_sim_time', context),
         },
     )}
 

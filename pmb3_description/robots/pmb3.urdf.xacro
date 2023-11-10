@@ -19,9 +19,9 @@
   <xacro:arg name="camera_model" default="realsense-d435"/>
   <xacro:arg name="multiple" default="false"/>
   <xacro:arg name="namespace" default=""/>
-  <xacro:arg name="simulation" default="false" />
+  <xacro:arg name="use_sim" default="false" />
   <xacro:property name="is_multiple" value="$(arg multiple)" />
-  <xacro:property name="use_nominal_extrinsics" value="$(arg simulation)"/>
+  <xacro:property name="use_nominal_extrinsics" value="$(arg use_sim)"/>
   <xacro:property name="nsp" value="$(arg namespace)" />
   <xacro:property name="laser_model" value="$(arg laser_model)" />
   <xacro:if value="${laser_model not in ['No', 'false', False, 'sick-551', 'sick-561', 'sick-571', 'hokuyo', 'ydlidar-tg30', 'ydlidar-tg15', 'sick-nanoscan-3']}">
@@ -36,7 +36,7 @@
   <xacro:include filename="$(find pmb3_description)/gazebo/gazebo.urdf.xacro" />
   <!-- ros2_control -->
   <xacro:include filename="$(find pmb3_description)/ros2_control/ros2_control.urdf.xacro" />
-  <xacro:pmb3_ros2_control simulation="$(arg simulation)" />
+  <xacro:pmb3_ros2_control use_sim="$(arg use_sim)" />
   <!-- Materials for visualization -->
   <xacro:include filename="$(find pmb3_description)/urdf/materials.urdf.xacro" />
 

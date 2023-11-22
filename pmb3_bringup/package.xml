@@ -9,6 +9,7 @@
   <author email="yue.erro@pal-robotics.com">Yue Erro</author>
   <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
   <license>Apache License 2.0</license>
+  <url type="website">https://github.com/pal-robotics/pmb3_simulation</url>
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 

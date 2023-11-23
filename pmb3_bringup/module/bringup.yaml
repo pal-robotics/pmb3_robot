@@ -1,2 +1,0 @@
-bringup:
-  launch: "pmb3_bringup pmb3_bringup.launch.py"

@@ -26,6 +26,7 @@
   <exec_depend>pmb2_description</exec_depend>
   <!--@TODO: https://gitlab/ros-overlays/realsense-->
   <!-- <exec_depend>realsense2_description</exec_depend> -->
+  <exec_depend>ros2controlcli</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

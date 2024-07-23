@@ -41,8 +41,8 @@ def generate_launch_description():
         remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))])
 
     joy_node = Node(
-        package='joy',
-        executable='joy_node',
+        package='joy_linux',
+        executable='joy_linux_node',
         name='joystick',
         parameters=[os.path.join(pkg_dir, 'config', 'joy_config.yaml')])
 

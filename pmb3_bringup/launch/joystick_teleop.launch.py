@@ -24,7 +24,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_dir = get_package_share_directory('pmb3_bringup')
-    joy_teleop_path = os.path.join(pkg_dir,  'config', 'joy_teleop', 'joy_teleop.yaml')
+    joy_teleop_path = os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_teleop.yaml')
 
     declare_cmd_vel = DeclareLaunchArgument(
         'cmd_vel', default_value='input_joy/cmd_vel',

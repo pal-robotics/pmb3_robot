@@ -20,12 +20,10 @@ limitations under the License.
 <xacro:macro name="pmb3_ros2_control" params="use_sim:=^|false">
 
     <xacro:include filename="$(find pmb3_description)/urdf/wheels/wheel.ros2_control.xacro"/>
-    <xacro:include filename="$(find pmb3_description)/urdf/sensors/sensors.ros2_control.xacro"/>
 
     <ros2_control name="ros2_control_pmb3_system" type="system">
 
       <xacro:if value="$(arg use_sim)">
-        <xacro:ros2_control_imu name="base_imu_sensor"/>
         <hardware>
           <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
